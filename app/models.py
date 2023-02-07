@@ -29,7 +29,7 @@ class Doctor(db.Model, UserMixin):
     def __repr__(self):
         return '<Doctor {}>'.format(self.id)
 
-        
+#modello del messaggio di assistenza che verrà inviato al db. Niente visualizzazione grafica. Non necessaria        
 
 class Messages(db.Model):
     id = db.Column(db.Integer, primary_key=True)
