@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BLOCKREHAB</title>
+
+    <!-- font awesome cdn link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <!-- custom css file link  -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='../static/css/style.css') }}">
+
+</head>
+<body>
+    
+<!-- header section starts  -->
+
+<header class="header">
+
+    <a href="#" class="logo"> <i class="fas fa-heartbeat"></i> BLOCKREHAB </a>
+
+    <nav class="navbar">
+        <a href="#home">HOME</a>
+        <a href="#services">SERVIZI</a>
+        <a href="#doctors">CHI SIAMO</a>
+        <a href="{{ url_for('ictus') }}">ICTUS</a>
+        <a href="{{ url_for('sclerosimultipla') }}">SCLEROSI MULTIPLA</a>
+        <a href="{{ url_for('infortuni') }}">INFORTUNI</a>
+    </nav>
+
+    <div id="menu-btn" class="fas fa-bars"></div>
+
+</header>
+
+<!-- header section ends -->
+
+<!-- home section starts  -->
+
+<section class="book" id="book">
+    
+    
+    <h1 class="heading"> <span> </span> </h1>
+    <h1 class="heading"> <span> </span> </h1>    
+
+    <div class="row">
+
+        <div class="image">
+            <img src="../static/image/book-img.svg" alt="">
+        </div>
+
+       
+        
+        <form action="/assistenza" method="POST">
+            <h3>DO YOU NEED ANY HELP?</h3>
+            
+        
+                <strong>Fill the form if there are any problems or if You have any questions.</strong><br>
+                Our team is here to support and will contact You back as soon as possible :)
+                 
+      
+
+            {% if error_statement %}
+
+            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                <strong>Warning!</strong> {{ error_statement }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+              </div>
+
+            {% endif %}
+
+    
+                
+            
+            <input type="text" placeholder="Username" class="box" id="exampleImputName" aria-describedby="emailHelp" name="username" value="{{ username }}">
+            <input type="text" placeholder="Email" class="box" id="exampleImputName" aria-describedby="emailHelp" name="email" value="{{ email }}">
+            <textarea type="text" placeholder="Message" class="box" id="exampleImputFirma" aria-describedby="emailHelp" name="message" value="{{ message }}" colum="40" rows="7"></textarea>
+
+            <button class="btn btn-secondary" type="submit" value="Add Patient" >SEND</button>
+        </form>
+     
+
+    </div>
+
+</section>
+
+<!-- booking section ends -->
+
+
+<!-- footer section starts  -->
+
+<section class="footer">
+
+    <div class="box-container">
+
+        <div class="box">
+            <h3>QUICK LINKS</h3>
+            <a href="#"> <i class="fas fa-chevron-right"></i> home </a>
+            <a href="#"> <i class="fas fa-chevron-right"></i> services </a>
+            <a href="#"> <i class="fas fa-chevron-right"></i> about us </a>
+            <a href="#"> <i class="fas fa-chevron-right"></i> ictus </a>
+            <a href="#"> <i class="fas fa-chevron-right"></i> injuries </a>
+            <a href="#"> <i class="fas fa-chevron-right"></i> sla </a>
+        </div>
+
+        <div class="box">
+            <h3>I NOSTRI SERVIZI</h3>
+            <a href="#"> <i class="fas fa-chevron-right"></i> Ictus </a>
+            <a href="#"> <i class="fas fa-chevron-right"></i> Injuries </a>
+            <a href="#"> <i class="fas fa-chevron-right"></i> Sla </a>
+            <a href="#"> <i class="fas fa-chevron-right"></i> Token </a>
+        </div>
+
+        <div class="box">
+            <h3>INFO CONTATTI</h3>
+            <a href="#"> <i class="fas fa-phone"></i> 040 375 5301 </a>
+            <a href="#"> <i class="fas fa-envelope"></i> its@volta.it </a>
+            <a href="#"> <i class="fas fa-map-marker-alt"></i> SS 14 Km 163,5, 34149 Basovizza TS </a>
+        </div>
+
+        <div class="box">
+            <h3>SEGUICI</h3>
+            <a href="#"> <i class="fab fa-facebook-f"></i> facebook </a>
+            <a href="#"> <i class="fab fa-twitter"></i> twitter </a>
+            <a href="#"> <i class="fab fa-instagram"></i> instagram </a>
+            <a href="#"> <i class="fab fa-linkedin"></i> linkedin </a>
+            <a href="#"> <i class="fab fa-pinterest"></i> pinterest </a>
+        </div>
+
+    </div>
+
+    <div class="credit"> created by <span>AliExpress24</span> | all rights reserved </div>
+
+</section>
+
+
+<!-- home section ends -->
+
+
+<!-- footer section starts  -->
+
+<section class="footer">
+
+    <div class="box-container">
+
+        <div class="box">
+            <h3>LINK VELOCI</h3>
+            <a href="#"> <i class="fas fa-chevron-right"></i> home </a>
+            <a href="#"> <i class="fas fa-chevron-right"></i> servizi </a>
+            <a href="#"> <i class="fas fa-chevron-right"></i> chi siamo </a>
+            <a href="#"> <i class="fas fa-chevron-right"></i> ictus </a>
+            <a href="#"> <i class="fas fa-chevron-right"></i> infortuni </a>
+            <a href="#"> <i class="fas fa-chevron-right"></i> sclerosi multipla </a>
+        </div>
+
+        <div class="box">
+            <h3>I NOSTRI SERVIZI</h3>
+            <a href="#"> <i class="fas fa-chevron-right"></i> Ictus </a>
+            <a href="#"> <i class="fas fa-chevron-right"></i> Infortuni </a>
+            <a href="#"> <i class="fas fa-chevron-right"></i> Sclerosi Multipla </a>
+            <a href="#"> <i class="fas fa-chevron-right"></i> Token </a>
+        </div>
+
+        <div class="box">
+            <h3>INFO CONTATTI</h3>
+            <a href="#"> <i class="fas fa-phone"></i> 040 375 5301 </a>
+            <a href="#"> <i class="fas fa-envelope"></i> its@volta.it </a>
+            <a href="#"> <i class="fas fa-map-marker-alt"></i> SS 14 Km 163,5, 34149 Basovizza TS </a>
+        </div>
+
+        <div class="box">
+            <h3>SEGUICI</h3>
+            <a href="#"> <i class="fab fa-facebook-f"></i> facebook </a>
+            <a href="#"> <i class="fab fa-twitter"></i> twitter </a>
+            <a href="#"> <i class="fab fa-twitter"></i> twitter </a>
+            <a href="#"> <i class="fab fa-instagram"></i> instagram </a>
+            <a href="#"> <i class="fab fa-linkedin"></i> linkedin </a>
+            <a href="#"> <i class="fab fa-pinterest"></i> pinterest </a>
+        </div>
+
+    </div>
+
+    <div class="credit"> created by <span>AliExpress24</span> | all rights reserved </div>
+
+</section>
+
+<!-- footer section ends -->
+
+<!-- custom js file link  -->
+<script src="../static/js/script.js"></script>
+
+</body>
+</html>

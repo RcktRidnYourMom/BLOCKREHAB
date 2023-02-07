@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block title %}{{ title }}{% endblock %}
+
+    <!-- font awesome cdn link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <!-- custom css file link  -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='../static/css/style.css') }}">
+
+</head>
+<body>
+    
+<!-- header section starts  -->
+
+<header class="header">
+
+    <a href="#" class="logo"> <i class="fas fa-heartbeat"></i> BLOCKREHAB </a>
+    <h1>With the blockchain we move!</h1>
+
+
+
+    <div id="menu-btn" class="fas fa-bars"></div>
+
+</header>
+
+
+<!-- header section ends -->
+
+<!-- booking section starts   -->
+
+<section class="book" id="book">
+
+    
+    <h1 class="heading"> <span> </span> </h1>
+    <h1 class="heading"> <span> </span> </h1>    
+
+    <div class="row">
+
+        <div class="image">
+            <img src="../static/image/about-img.svg" alt="">
+        </div>
+
+        
+        <form action="/login" method="POST">
+            <h3>LOGIN</h3>
+   
+            
+            <h4 >
+                {% block content %}
+                
+                    {% for message in get_flashed_messages() %}
+                
+                        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                            {{ message }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                
+                
+                    {% endfor %}
+                {% endblock %}
+            </h4>
+
+            
+            <input type="username" placeholder="Username" class="box" id="exampleImputEmail" aria-describedby="emailHelp" name="username">
+            <input type="password" id="psw" placeholder="Password" class="box" id="exampleImputPassword" aria-describedby="emailHelp" name="password" >
+            <input type="checkbox" onclick="myFunction()"><span>Show password</span>
+            <input type="text" placeholder="Signature" class="box" id="exampleImputFirma" aria-describedby="emailHelp" name="firmadig">
+            <button class="btn btn-secondary" type="submit" >LOGIN</button>
+        </form>
+       
+ 
+
+    </div>
+
+</section>
+
+<!-- booking section ends -->
+
+
+<!-- footer section starts  -->
+
+<section class="footer">
+
+
+
+    <div class="credit"> created by <span>AliExpress24</span> | all rights reserved </div>
+
+</section>
+
+<!-- footer section ends -->
+<script>
+    function myFunction() {
+      var x = document.getElementById("psw");
+      if (x.type === "password") {
+        x.type = "text";
+      } else {
+        x.type = "password";
+      }
+    }
+    </script>
+<!-- custom js file link  -->
+
+<script src="../static/js/script.js"></script>
+
+</body>
+</html>

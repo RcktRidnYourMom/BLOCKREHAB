@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BLOCKREHAB</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='../static/css/style.css') }}">
+    <!-- font awesome cdn link  -->
+
+
+    <!-- custom css file link  -->
+ 
+
+</head>
+<body>
+
+  
+    
+    
+<!-- header section starts  -->
+
+<header class="header">
+    
+
+    <a href="#" class="logo"> <i class="fas fa-heartbeat"></i> BLOCKREHAB </a>
+    <h5 >
+        {% block content %}
+        
+            {% for message in get_flashed_messages() %}
+        
+                <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                    {{ message }}
+                </div>
+                
+            {% endfor %}
+        {% endblock %}
+        </h5>
+        {% if current_user.is_authenticated %}
+            <a href="{{url_for('logout')}}">Logout</a> 
+        {% endif %}
+    <nav class="navbar">
+        <a href="#home">HOME</a>
+        <a href="#services">SERVICES</a>
+        <a href="#doctors">ABOUT US</a>
+    
+            <a href="{{ url_for('assistenza') }}">ASSISTANCE</a>
+            <a href="{{ url_for('pazienti') }}">PATIENTS</a>
+        
+
+        
+    </nav>
+   
+
+    <div id="menu-btn" class="fas fa-bars"></div>
+
+</header>
+
+<!-- header section ends -->
+
+
+<!-- home section starts  -->
+
+<section class="home" id="home">
+  
+
+
+    <div class="image">
+        <img src="../static/image/home-img.svg" alt="">
+    </div>
+
+    <div class="content">
+        <h2>Connect your wallet here: </h2>
+        <button id ="connectWallet" onclick="" class="btn btn-secondary">Connect wallet</button>
+        <button id ="getBalance" onclick="checkBalance()" class="btn btn-secondary" >Get Balance</button>
+        <p id="walletAddress"></p>
+        <p id="walletBalance"></p>
+        <h3>With the blockchain we move!</h3>
+        <p>The BLOCKCHAIN is an amazing tool! Let's use it to make our life better and the access to rehabilitation easier!</p>
+     
+    </div>
+
+
+</section>
+
+<!-- home section ends -->
+
+
+<!-- services section starts  -->
+
+<section class="services" id="services">
+
+    <h1 class="heading"> REHABILITATIONS <span>OFFERED</span> </h1>
+
+    <div class="box-container">
+
+        <div class="box">
+            <i class="class="fas fa-user-md""></i>
+            <h3>ICTUS</h3>
+            <p>Insert the patient</p>
+            <a href="{{ url_for('ictus') }}" class="btn"> GO <span class="fas fa-chevron-right"></span> </a>
+        </div>
+
+        <div class="box">
+            <i class=class="fas fa-user-md"></i>
+            <h3>SLA</h3>
+            <p>Insert the patient</p>
+            <a href="{{ url_for('sclerosimultipla') }}" class="btn"> GO <span class="fas fa-chevron-right"></span> </a>
+        </div>
+
+        <div class="box">
+            <i class=class="fas fa-user-md"></i>
+            <h3>INJURIES</h3>
+            <p>Insert the patient</p>
+            <a href="{{ url_for('infortuni') }}" class="btn"> GO <span class="fas fa-chevron-right"></span> </a>
+        </div>
+
+
+    </div>
+    <br>
+    <br>
+    <div>
+        <p><strong>Name: </strong>{{ current_user.name }}<br><br>
+        <strong>Username: </strong>{{ current_user.username }}<br><br>
+        <strong>Firmadig: </strong>{{ current_user.firmadig }}<br><br></p>
+
+    </div>
+
+</section>
+
+<!-- services section ends -->
+
+<!-- about section starts  -->
+
+<section class="about" id="about">
+
+    <h1 class="heading"> <span>ABOUT</span> US </h1>
+
+    <div class="row">
+
+        <div class="image">
+            <img src="../static/image/about-img.svg" alt="">
+        </div>
+
+        <div class="content">
+            <h3>Your health is our priority, we want you to get back on track!</h3>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iure ducimus, quod ex cupiditate ullam in assumenda maiores et culpa odit tempora ipsam qui, quisquam quis facere iste fuga, minus nesciunt.</p>
+            <a href="#" class="btn"> learn more <span class="fas fa-chevron-right"></span> </a>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- about section ends -->
+
+<!-- doctors section starts  -->
+
+<section class="doctors" id="doctors">
+
+    <h1 class="heading"> OUR <span>TEAM </span>OF <span> EXPERTS</span> </h1>
+
+    <div class="box-container">
+
+        <div class="box">
+            <img src="../static/image/marco.jpg" alt="">
+            <h2>MARCO <br> CANTARUTTI</h2>
+            <h3>Solidity Developer & CTO</h3>
+            <div class="share">
+                <a href="#" class="fab fa-facebook-f"></a>
+                <a href="#" class="fab fa-twitter"></a>
+                <a href="#" class="fab fa-instagram"></a>
+                <a href="#" class="fab fa-linkedin"></a>
+            </div>
+        </div>
+
+        <div class="box">
+            <img src="../static/image/matteo.jpg" alt="">
+            <h2>MATTEO <br> FERRO</h2>
+            <h3> Head of Testing & UML include expert</h3>
+            <div class="share">
+                <a href="#" class="fab fa-facebook-f"></a>
+                <a href="#" class="fab fa-twitter"></a>
+                <a href="#" class="fab fa-instagram"></a>
+                <a href="#" class="fab fa-linkedin"></a>
+            </div>
+        </div>
+
+        <div class="box">
+            <img src="../static/image/alice.jpeg" alt="">
+            <h2>ALICE <br> CRUDELE</h2>
+            <h3>Chief of Front-end & UI Development</h3>
+            <div class="share">
+                <a href="#" class="fab fa-facebook-f"></a>
+                <a href="#" class="fab fa-twitter"></a>
+                <a href="#" class="fab fa-instagram"></a>
+                <a href="#" class="fab fa-linkedin"></a>
+            </div>
+        </div>
+
+        <div class="box">
+            <img src="../static/image/martina.jpg" alt="">
+            <h2>MARTINA <br> SMILOVICH</h2>
+            <h3>Project Manager & Documentalist</h3>
+            <div class="share">
+                <a href="#" class="fab fa-facebook-f"></a>
+                <a href="#" class="fab fa-twitter"></a>
+                <a href="#" class="fab fa-instagram"></a>
+                <a href="#" class="fab fa-linkedin"></a>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- doctors section ends -->
+
+<!-- footer section starts  -->
+
+<section class="footer">
+
+    <div class="box-container">
+
+        <div class="box">
+            <h3>QUICK LINKS</h3>
+            <a href="#"> <i class="fas fa-chevron-right"></i> home </a>
+            <a href="#"> <i class="fas fa-chevron-right"></i> services </a>
+            <a href="#"> <i class="fas fa-chevron-right"></i> about us </a>
+            <a href="#"> <i class="fas fa-chevron-right"></i> ictus </a>
+            <a href="#"> <i class="fas fa-chevron-right"></i> injuries </a>
+            <a href="#"> <i class="fas fa-chevron-right"></i> sla </a>
+        </div>
+
+        <div class="box">
+            <h3>I NOSTRI SERVIZI</h3>
+            <a href="#"> <i class="fas fa-chevron-right"></i> Ictus </a>
+            <a href="#"> <i class="fas fa-chevron-right"></i> Injuries </a>
+            <a href="#"> <i class="fas fa-chevron-right"></i> Sla </a>
+            <a href="#"> <i class="fas fa-chevron-right"></i> Token </a>
+        </div>
+
+        <div class="box">
+            <h3>INFO CONTATTI</h3>
+            <a href="#"> <i class="fas fa-phone"></i> 040 375 5301 </a>
+            <a href="#"> <i class="fas fa-envelope"></i> its@volta.it </a>
+            <a href="#"> <i class="fas fa-map-marker-alt"></i> SS 14 Km 163,5, 34149 Basovizza TS </a>
+        </div>
+
+        <div class="box">
+            <h3>SEGUICI</h3>
+            <a href="#"> <i class="fab fa-facebook-f"></i> facebook </a>
+            <a href="#"> <i class="fab fa-twitter"></i> twitter </a>
+            <a href="#"> <i class="fab fa-instagram"></i> instagram </a>
+            <a href="#"> <i class="fab fa-linkedin"></i> linkedin </a>
+            <a href="#"> <i class="fab fa-pinterest"></i> pinterest </a>
+        </div>
+
+    </div>
+
+    <div class="credit"> created by <span>AliExpress24</span> | all rights reserved </div>
+
+</section>
+
+<!-- footer section ends -->
+
+<!-- custom js file link  -->
+<script src="../static/js/script.js"></script>
+<script type="text/javascript">
+    window.userWalletAddress = null
+    const connectWallet = document.getElementById('connectWallet')
+    const walletAddress = document.getElementById('walletAddress')
+    const walletBalance = document.getElementById('walletBalance')
+
+
+
+
+
+
+    function checkInstalled() {
+      if (typeof window.ethereum == 'undefined') {
+        connectWallet.innerText = 'MetaMask isnt installed, please install it'
+        connectWallet.classList.remove()
+        connectWallet.classList.add()
+        return false
+      }
+      connectWallet.addEventListener('click', connectWalletwithMetaMask)
+    }
+
+
+    async function connectWalletwithMetaMask() {
+      const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' })
+      .catch((e) => {
+      console.error(e.message)
+      return
+      })
+
+
+      if (!accounts) { return }
+
+
+      window.userWalletAddress = accounts[0]
+      walletAddress.innerText = "Wallet address: " + window.userWalletAddress
+
+
+      connectWallet.innerText = 'Sign Out'
+      connectWallet.removeEventListener('click', connectWalletwithMetaMask)
+      setTimeout(() => {
+        connectWallet.addEventListener('click', signOutOfMetaMask)
+      }, 200)
+
+
+    }
+
+
+
+
+    function signOutOfMetaMask() {
+      window.userwalletAddress = null
+      walletAddress.innerText = ''
+      walletBalance.innerText = ''
+      connectWallet.innerText = 'Connect Wallet'
+
+
+      connectWallet.removeEventListener('click', signOutOfMetaMask)
+      setTimeout(() => {
+        connectWallet.addEventListener('click', connectWalletwithMetaMask)
+      }, 200  )
+    }
+
+
+    async function checkBalance() {
+      let balance = await window.ethereum.request({ method: "eth_getBalance",
+      params: [
+        window.userWalletAddress,
+        'latest'
+      ]
+    }).catch((err)=> {
+        console.log(err)
+    })
+
+
+    console.log(parseFloat((balance) / Math.pow(10,18)))
+
+
+    walletBalance.innerText = "Eth: " + parseFloat((balance) / Math.pow(10,18))
+  }
+
+
+    window.addEventListener('DOMContentLoaded', () => {
+      checkInstalled()
+    })
+
+
+
+
+  </script>>
+
+</body>
+</html>

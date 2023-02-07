@@ -1,0 +1,25 @@
+{% block content %}
+{% for patient in pazienti %}
+    <ul>
+       
+            <h3>Patients</h3>
+            <li> <strong>Firstname:</strong>{{ pazienti.firstname }}<br></li>
+            <li><strong>Lastnameame:</strong>{{ pazienti.lastname }}<br></li>
+            <li><strong>Address:</strong>{{ pazienti.address }}<br></li>
+            <li><strong>Email:</strong>{{ pazienti.email }}<br></li>
+        </li>
+    </ul>
+{% endfor %}
+
+{% for doctor in dottori %}
+    <ul>
+        <li>
+            <h3>Doctorss</h3>
+            <strong>Name:</strong>{{ dottori.name }}<br>
+            <strong>Username:</strong>{{ pazienti.username }}<br>
+            <strong>Digital signature:</strong>{{ pazienti.firmadig }}<br>
+
+        </li>
+    </ul>
+{% endfor %}
+{% endblock %}
