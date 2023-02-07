@@ -23,6 +23,16 @@
         <br>
         <br>
         {% endfor %}
+        <h3>Messages</h3>
+        {% for message in messages %}
+      
+        <li> <strong>Username: </strong>{{ message.username }}<br></li>
+        <li> <strong>Email: </strong>{{ message.email }}<br></li>
+        <li> <strong>Message: </strong>{{ message.message }}<br></li>
+        
+        <br>
+        <br>
+        {% endfor %}
             
     
     </ul>

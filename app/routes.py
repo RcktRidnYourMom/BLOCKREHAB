@@ -188,10 +188,11 @@ def sclerosimultipla():
 # route di testing con la visualizzazione dei pazienti. Non sarebbe presente nella piattaforma
 @app.route('/pazienti', methods=['GET'])
 def pazienti():
+    messages = Messages.query.order_by(Messages.id)
     patients = Patient.query.order_by(Patient.date)
     doctors = Doctor.query.order_by(Doctor.id)
 
-    return render_template('pazienti.html', patients=patients, doctors =doctors)
+    return render_template('pazienti.html', patients=patients, doctors =doctors, messages=messages)
 
 
 # route per il form di assistenza, verrà inviato al database ma non verra visualizzato in nessuna pagina
