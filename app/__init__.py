@@ -20,8 +20,8 @@ from app import routes, models
 from app.models import Doctor
 
 @login_manager.user_loader
-def load_user(doctor_id):
-    return Doctor.query.get(int(doctor_id))
+def load_user(id):
+    return Doctor.query.get(int(id))
 
 if __name__=='__main__':
         app.run(debug=True)
